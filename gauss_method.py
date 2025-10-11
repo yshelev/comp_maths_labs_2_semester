@@ -4,6 +4,8 @@ def gauss_method(matrix: list[list[float]]) -> list[float]:
         if matrix[c][c] == 0: 
             continue
         for i in range(c + 1, len(matrix)): 
+            if matrix[i][c] == 0: 
+                continue
             k = matrix[c][c] / matrix[i][c]
 
             for j in range(c, len(matrix) + 1): 
@@ -31,8 +33,11 @@ def find_max_value_in_column_and_update(matrix: list[list[float]], c: int) -> bo
     for index, r in enumerate(matrix):
         if index < c: 
             continue
-        if abs(r[c]) > mv and r[c] != 0: 
+        if abs(r[c]) > mv: 
             row = index 
             mv = r[c]
+        
+        if r[c] == 0: 
+            break
 
     matrix[c], matrix[row] = matrix[row], matrix[c] 
