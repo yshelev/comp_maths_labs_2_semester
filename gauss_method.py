@@ -31,7 +31,7 @@ def find_max_value_in_column_and_update(matrix: list[list[float]], c: int) -> bo
     for index, r in enumerate(matrix):
         if index < c: 
             continue
-        if r[c] > mv and r[c] != 0: 
+        if abs(r[c]) > mv and r[c] != 0: 
             row = index 
             mv = r[c]
 
