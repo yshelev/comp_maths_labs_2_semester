@@ -1,15 +1,20 @@
-from utils import find_max_value_in_column_and_update
+from utils import find_max_value_in_column_and_update, print_matrix
 
 def gauss_method(matrix: list[list[float]]) -> list[float]:
-    for c in range(0, len(matrix)): 
+    for c in range(len(matrix)): 
         find_max_value_in_column_and_update(matrix, c)
         for i in range(c + 1, len(matrix)): 
+            
             if matrix[i][c] == 0: 
                 continue
             k = matrix[c][c] / matrix[i][c]
 
             for j in range(c, len(matrix) + 1): 
                 matrix[i][j] = matrix[c][j] - matrix[i][j] * k
+                
+        print(f"матрица после {c + 1}-ого шага")
+        print_matrix(matrix)
+
     return recover_answer_by_matrix(matrix)
 
 def recover_answer_by_matrix(matrix: list[list[float]]) -> list[float]:

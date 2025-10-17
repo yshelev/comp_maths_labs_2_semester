@@ -1,16 +1,11 @@
 def find_max_value_in_column_and_update(matrix: list[list[float]], c: int) -> None: 
-    mv, row = float("-inf"), -1
+    mv, row  = 0, -1
     for index in range(c, len(matrix)):
         r = matrix[index]
         
-        if index < c: 
-            continue
-        if abs(r[c]) > mv: 
+        if abs(r[c]) > abs(mv): 
             row = index 
             mv = r[c]
-        
-        if r[c] == 0: 
-            break
 
     matrix[c], matrix[row] = matrix[row], matrix[c] 
 

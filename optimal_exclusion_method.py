@@ -1,4 +1,4 @@
-from utils import find_max_value_in_column_and_update
+from utils import find_max_value_in_column_and_update, print_matrix
 
 def optimal_exclusion_method(matrix: list[list[float]]) -> list[float]:
     n = len(matrix)
@@ -21,5 +21,8 @@ def optimal_exclusion_method(matrix: list[list[float]]) -> list[float]:
 
             for i in range(k, n + 1): 
                 matrix[j][i] -= matrix[k][i] * coefficient
+        
+        print(f"матрица после {k + 1}-ого шага")
+        print_matrix(matrix)
             
     return [matrix[i][-1] for i in range(n)]

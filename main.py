@@ -4,6 +4,8 @@ from optimal_exclusion_method import optimal_exclusion_method
 from utils import print_matrix, print_x
 import numpy as np
 
+import copy
+
 matrix = [
     [5, 2, 3, 3],
     [1, 6, 1, 5],
@@ -41,6 +43,7 @@ matrixs = [
 for m in matrixs: 
     A = [s[:-1] for s in m]
     B = [s[-1] for s in m]
+    m1 = copy.deepcopy(m)
     print_matrix(m)
 
     print("ᓚᘏᗢᓚᘏᗢᓚᘏᗢ  метод оптимального исключения  ᓚᘏᗢᓚᘏᗢᓚᘏᗢ")
@@ -56,7 +59,7 @@ for m in matrixs:
 
     print("ᓚᘏᗢᓚᘏᗢᓚᘏᗢ  метод гаусса  ᓚᘏᗢᓚᘏᗢᓚᘏᗢ")
 
-    X = gauss_method(m)
+    X = gauss_method(m1)
     print_x(X)
     e = np.dot(A, X) - B
     print("максимальная погрешность:")
