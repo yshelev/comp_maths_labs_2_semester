@@ -1,8 +1,8 @@
+from utils import find_max_value_in_column_and_update
+
 def gauss_method(matrix: list[list[float]]) -> list[float]:
     for c in range(0, len(matrix)): 
         find_max_value_in_column_and_update(matrix, c)
-        if matrix[c][c] == 0: 
-            continue
         for i in range(c + 1, len(matrix)): 
             if matrix[i][c] == 0: 
                 continue
@@ -25,19 +25,4 @@ def recover_answer_by_matrix(matrix: list[list[float]]) -> list[float]:
     return x_list[::-1]
 
 def solution_of_linear_equation(a: float, b: float): 
-    return b / a 
-
-
-def find_max_value_in_column_and_update(matrix: list[list[float]], c: int) -> bool: 
-    mv, row = float("-inf"), -1
-    for index, r in enumerate(matrix):
-        if index < c: 
-            continue
-        if abs(r[c]) > mv: 
-            row = index 
-            mv = r[c]
-        
-        if r[c] == 0: 
-            break
-
-    matrix[c], matrix[row] = matrix[row], matrix[c] 
+    return b / a
