@@ -1,3 +1,5 @@
+from utils import print_matrix, print_x
+
 def square_root_method(
     a: list[list[float]], 
     b: list[list[float]]
@@ -8,13 +10,18 @@ def square_root_method(
     x = [0] * n
 
     s = create_S_matrix_from_A(a)
+    print("Матрица S: ")
+    print_matrix(s)
+    print()
     for i in range(n): 
-
         summ = 0 
-        for k in range(1, i): 
+        for k in range(i): 
             summ += s[k][i] * y[k]
         
         y.append((b[i] - summ) / s[i][i])
+
+    print("Полученный вектор Y: ")
+    print_x(y)
 
     for i in range(n - 1, -1, -1): 
         summ = 0
@@ -23,8 +30,9 @@ def square_root_method(
 
         x[i] = (y[i] - summ) / s[i][i]
     
-    return x
-
+    print("Полученный вектор X: ")
+    print_x(x)
+    
 def get_transposed_matrix(matrix: list[list[float]]) -> list[list[float]]: 
     n = len(matrix)
 

@@ -1,4 +1,5 @@
 from square_root_method import square_root_method
+from utils import print_matrix, print_x
 
 A = [
 [1, 3, -2, 0, -2], 
@@ -14,10 +15,10 @@ A1 = [
 ]
 
 B1 = [
-    16, 15, 52
+    16, 12, 52
 ]
 
 B = [0.5, 5.4, 5.0, 7.5, 3.3]
 
-print(square_root_method(A, B))
+print_x(square_root_method(A1, B1))
 
