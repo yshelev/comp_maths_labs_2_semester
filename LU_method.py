@@ -15,6 +15,8 @@ def LU(a: list[list[float]], b: list[list[float]]) -> list[float]:
             )
         )
 
+    # решаем Ux = y
+
     for i in range(n - 1, -1, -1): 
         x.append(
             _(
