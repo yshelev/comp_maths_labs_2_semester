@@ -2,11 +2,33 @@ from utils import print_matrix
 
 def LU(a: list[list[float]], b: list[list[float]]) -> list[float]: 
     l, u = create_LU_from_matrix(a)
-
+    n = len(a)
     # решаем Ly = B
-    
+    y = []
+    x = []
 
-    return l, u
+    for i in range(n): 
+        y.append(
+            _(
+                b[i] - sum([y[j] * l[i][j] for j in range(i)]), 
+                l[i][i]
+            )
+        )
+
+    #решаем Ux = y
+
+    for i in range(n - 1, -1, -1): 
+        x.append(
+            _(
+                y[i] - sum([x[j] * u[i][j] for j in range(n - 1, i, -1)]), 
+                u[i][i]
+            )
+        )
+
+    return x
+
+def _(a, b): 
+    return b / a
 
 def create_LU_from_matrix(a: list[list[float]]): 
     n = len(a)

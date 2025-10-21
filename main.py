@@ -9,7 +9,7 @@ a = [
     [5, 7, 4, 6]
 ]
 
-l, u = LU(a, [])  
+l, u = LU(a, [4, 2, 3, 1])  
 print("l")
 print_matrix(l)
 
