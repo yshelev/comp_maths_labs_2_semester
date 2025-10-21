@@ -20,7 +20,7 @@ def LU(a: list[list[float]], b: list[list[float]]) -> list[float]:
     for i in range(n - 1, -1, -1): 
         x.append(
             _(
-                y[i] - sum([x[j] * u[i][j] for j in range(n - 1, i, -1)]), 
+                y[i] - sum([x[n - j - 1] * u[i][j] for j in range(n - 1, i, -1)]), 
                 u[i][i]
             )
         )

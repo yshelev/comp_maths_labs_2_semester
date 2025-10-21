@@ -1,6 +1,6 @@
 from LU_method import LU
 import numpy as np
-from utils import print_matrix
+from utils import print_matrix, print_x
 
 a = [
     [5, 1, 0, 9], 
@@ -9,13 +9,5 @@ a = [
     [5, 7, 4, 6]
 ]
 
-l, u = LU(a, [4, 2, 3, 1])  
-print("l")
-print_matrix(l)
-
-print("u")
-print_matrix(u)
-
-print("test")
-
-print_matrix(np.dot(l, u))
+x = LU(a, [4, 2, 3, 1])  
+print_x(x)
