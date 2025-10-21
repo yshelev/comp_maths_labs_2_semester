@@ -15,8 +15,6 @@ def LU(a: list[list[float]], b: list[list[float]]) -> list[float]:
             )
         )
 
-    #решаем Ux = y
-
     for i in range(n - 1, -1, -1): 
         x.append(
             _(
@@ -28,7 +26,7 @@ def LU(a: list[list[float]], b: list[list[float]]) -> list[float]:
     return x
 
 def _(a, b): 
-    return b / a
+    return a / b
 
 def create_LU_from_matrix(a: list[list[float]]): 
     n = len(a)
