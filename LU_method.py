@@ -25,7 +25,7 @@ def LU(a: list[list[float]], b: list[list[float]]) -> list[float]:
             )
         )
 
-    return x
+    return x[::-1]
 
 def _(a, b): 
     return a / b
