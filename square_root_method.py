@@ -32,6 +32,7 @@ def square_root_method(
     
     print("Полученный вектор X: ")
     print_x(x)
+    return x
     
 def get_transposed_matrix(matrix: list[list[float]]) -> list[list[float]]: 
     n = len(matrix)

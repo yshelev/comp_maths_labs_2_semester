@@ -1,5 +1,6 @@
 from square_root_method import square_root_method
 from utils import print_matrix, print_x
+import numpy as np
 
 A = [
 [1, 3, -2, 0, -2], 
@@ -20,5 +21,6 @@ B1 = [
 
 B = [0.5, 5.4, 5.0, 7.5, 3.3]
 
-print_x(square_root_method(A1, B1))
+print_x(x := square_root_method(A, B))
 
+print(max(np.dot(A, x) - B))
