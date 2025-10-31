@@ -1,4 +1,4 @@
-from utils import print_matrix
+from utils import print_matrix, print_x
 
 def LU(a: list[list[float]], b: list[list[float]]) -> list[float]: 
     l, u = create_LU_from_matrix(a)
