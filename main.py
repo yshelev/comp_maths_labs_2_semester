@@ -11,4 +11,6 @@ a = [
 
 b = [4, 2, 3, 1]
 x = LU(a, b)  
-print_x(x)
+
+print("максимальная ошибка: ")
+print(max(np.dot(a, x) - b))

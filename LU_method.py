@@ -14,6 +14,9 @@ def LU(a: list[list[float]], b: list[list[float]]) -> list[float]:
                 l[i][i]
             )
         )
+    
+    print("вектор Y:")
+    print_x(y)
 
     # решаем Ux = y
 
@@ -42,4 +45,12 @@ def create_LU_from_matrix(a: list[list[float]]):
                 u[i][j] = a[i][j] - sum([l[i][k] * u[k][j] for k in range(i)])
             else: 
                 l[i][j] = (a[i][j] - sum([l[i][k] * u[k][j] for k in range(j)])) / u[j][j]
+    
+    
+    print("Матрицa L:")
+    print_matrix(l)
+    
+    print("Матрицa U:")
+    print_matrix(u)
+    
     return l, u
