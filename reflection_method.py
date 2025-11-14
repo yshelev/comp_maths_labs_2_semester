@@ -7,6 +7,13 @@ from utils import print_matrix
 def reflection_method(A, B): 
     Q, R = QR_decomposition(A)
     
+    print("Матрица Q: ")
+    print_matrix(Q)
+    print()
+    
+    print("Матрица R: ")
+    print_matrix(R)
+    
     n = len(A)
     x = np.zeros(n)
     g = Q.T @ B
@@ -21,7 +28,6 @@ def reflection_method(A, B):
 
 def QR_decomposition(A):
     a_clone = copy.deepcopy(A)
-    
     
     n = len(a_clone)
     Q = np.eye(n)
@@ -38,6 +44,9 @@ def QR_decomposition(A):
         Pk = np.eye(n) - (2 / (np.dot(norm_p, norm_p))) * np.outer(norm_p, norm_p)
         Q = Q @ Pk
         a_clone = Pk @ a_clone
+        
+        print(f"Матрица A после {k + 1}-ого шага")
+        print_matrix(a_clone)
 
     R = a_clone
 
