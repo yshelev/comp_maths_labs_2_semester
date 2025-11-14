@@ -3,7 +3,11 @@ from utils import print_matrix
 
 def border_method(A, B): 
     a_inversed = find_inverse_matrix(A)
-    
+    print("Обратная матрица для матрицы А:")
+    print_matrix(a_inversed)
+
+    print("Проверка (A * A-1 = E)")
+    print_matrix(a_inversed @ A)
     return a_inversed @ B.T
     
 def find_inverse_matrix(A): 
