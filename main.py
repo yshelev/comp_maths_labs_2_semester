@@ -15,6 +15,7 @@ A = np.array([
 B = np.array([0.096, 1.252, 1.024, 1.023, 1.155, 1.937, 1.673])
 
 
+
 x = border_method(A, B)
 
 print("Столбец X:")
