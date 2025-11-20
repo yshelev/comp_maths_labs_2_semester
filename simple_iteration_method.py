@@ -1,0 +1,27 @@
+import numpy as np
+
+def simple_iteration_method(A, B, epsilon = 10e-16, iters = 100000): 
+    n = len(A)
+    
+    D = np.zeros((n, n))
+    
+    for i in range(n): 
+        D[i, i] = A[i, i]
+    
+    E = np.eye(n)
+    D_inv = np.linalg.inv(D)
+    
+    JB = E - D_inv @ A
+    G = D_inv @ B
+    
+    x = np.zeros(n)
+    
+    for _ in range(iters): 
+        x_new = JB @ x + G
+        
+        if all(abs(x_new - x) < epsilon):
+            return x_new 
+        
+        x = x_new
+        
+    return x
