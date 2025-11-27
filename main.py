@@ -11,7 +11,10 @@ B = np.array([8, 10, 9, 4, 5])
 
 x = 梯度下降(A, B)
 
+print("найденный вектор X: ")
 for x_ in x: 
     print(x_)
-    
-print(abs(A @ x - B))
+print()
+
+print("Максимальная ошибка выражения A @ x - B")  
+print(max(abs(A @ x - B)))
