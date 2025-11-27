@@ -16,10 +16,11 @@ def simple_iteration_method(A, B, epsilon = 10e-16, iters = 100000):
     
     x = np.zeros(n)
     
-    for _ in range(iters): 
+    for iter in range(iters): 
         x_new = JB @ x + G
         
         if all(abs(x_new - x) < epsilon):
+            print(f"{iter=}", f"{epsilon=}")
             return x_new 
         
         x = x_new

@@ -13,15 +13,22 @@ B = np.array([8, 10, 9, 4, 5])
 omega = 1
 
 x = simple_iteration_method(A, B)
+
+print("Найденный вектор X: ")
 for x_ in x: 
     print(x_)
     
-print(abs(A @ x - B))
+print()
+print("максимальная ошибка: ")
+    
+print(max(abs(A @ x - B)))
 
 
 x = relaxation_method(A, B, omega)
 
+print("Найденный вектор X: ")
 for x_ in x: 
     print(x_)
-    
-print(abs(A @ x - B))
+print()
+print("максимальная ошибка: ")
+print(max(abs(A @ x - B)))
