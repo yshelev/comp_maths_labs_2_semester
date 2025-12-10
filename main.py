@@ -7,8 +7,9 @@ A = np.array([
     [-2, 3, 6, 2, 0],
     [0, -1, 2, 4, -1],
     [1, 2, 0, -1, 3]])
+B = np.array([8, 10, 9, 4, 5])
 
-lambdas = richardson(A)
+lambdas = richardson(A, B)
 
 print("my lambdas: ")
 for lambda_ in sorted(lambdas): 
