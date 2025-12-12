@@ -10,7 +10,7 @@ A = np.array([
     [1, 2, 0, -1, 3]])
 B = np.array([8, 10, 9, 4, 5])
 
-x = simple_iteration_method(A, B)
+x, iter = simple_iteration_method(A, B)
 
 print("Найденный вектор X: ")
 for x_ in x: 
@@ -21,8 +21,8 @@ print("максимальная ошибка: ")
     
 print(max(abs(A @ x - B)))
 
-for omega in range(0, 3): 
-    x, iters = relaxation_method(A, B, omega)
+for omega in range(1, 12): 
+    x, iters = relaxation_method(A, B, omega / 6)
     print(f"{omega=}, {iters=}")
     
     print("Найденный вектор X: ")

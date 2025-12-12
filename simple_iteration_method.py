@@ -1,6 +1,6 @@
 import numpy as np
 
-def simple_iteration_method(A, B, epsilon = 1e-15, iters = 100000): 
+def simple_iteration_method(A, B, epsilon = 1e-14, iters = 100000): 
     n = len(A)
     
     D = np.zeros((n, n))
@@ -21,8 +21,8 @@ def simple_iteration_method(A, B, epsilon = 1e-15, iters = 100000):
         
         if all(abs(x_new - x) < epsilon):
             print(f"{iter=}", f"{epsilon=}")
-            return x_new 
+            return x_new, iter
         
         x = x_new
         
-    return x
+    return x, iter
