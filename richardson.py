@@ -1,6 +1,6 @@
 import numpy as np
 
-def richardson(A: np.array, B: np.array, epsilon=1e-10):
+def richardson(A: np.array, B: np.array, epsilon=1e-14):
     n = len(A)
     x_new = np.zeros(n)
     
@@ -14,7 +14,7 @@ def richardson(A: np.array, B: np.array, epsilon=1e-10):
     x_new = B * tau_k / (1 + rho_0 * v_k) * np.ones(n)
     rho_1 = (1 - np.sqrt(theta)) / (1 + np.sqrt(theta))
     max_iter = int(np.log(2 / epsilon) / np.log(1 / rho_1)) + 2
-    for k in range(1, max_iter):
+    for k in range(1, max_iter + 10000):
         v_k = np.cos(((2 * k - 1) * np.pi) / (2 * n))
         tau_k = tau_0 / (1 + rho_0 * v_k)
         r = B - A @ x_new

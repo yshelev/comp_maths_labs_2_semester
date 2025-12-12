@@ -12,10 +12,10 @@ B = np.array([8, 10, 9, 4, 5])
 lambdas = richardson(A, B)
 
 print("my lambdas: ")
-for lambda_ in sorted(lambdas): 
+for lambda_ in lambdas: 
     print(lambda_)
     
-print("np lambdas: ")
-numpy_lambdas = np.linalg.eigvals(A)
-for lambda_ in sorted(numpy_lambdas): 
-    print(lambda_)
+    
+print(A@lambdas - B)
+    
+    
