@@ -1,20 +1,18 @@
 import numpy as np
 
-def check(A, k=8):
-    max_value = 0 
-    for i, row in enumerate(A): 
-        for j, value in enumerate(row): 
-            if i == j and abs(value) > max_value: 
-                max_value = abs(value)
+def check(A, k=10):
+    diag_elements = np.diag(A)
     
-    checked_value = np.sqrt(max_value) * 10 ** -k
+    max_diag_value = np.max(np.abs(diag_elements))
     
-    for i, row in enumerate(A): 
-        for j, value in enumerate(row): 
-            if i != j and abs(value) > checked_value: 
-                return False
+    threshold = np.sqrt(max_diag_value) * 10 ** -k
     
-    return True
+    n = len(A)
+    mask = ~np.eye(n, dtype=bool)
+    
+    off_diag_elements = A[mask]
+    
+    return np.all(np.abs(off_diag_elements) <= threshold)
     
 def rotation_method_with_obstacles(A: np.array): 
     n = len(A)
@@ -58,6 +56,5 @@ def rotation_method_with_obstacles(A: np.array):
         A = C
         if check(A):
             print(iters)
-            print(A)
             return [A[i, i] for i in range(n)]
         iters += 1
