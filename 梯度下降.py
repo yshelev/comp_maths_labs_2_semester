@@ -11,6 +11,8 @@ def 梯度下降(A, B, iters = 10000, epsilon=1e-16):
         x_new = x + alpha_k * r_k 
         if all(abs(x_new - x) < epsilon): 
             print(f"{iter=}", f"{epsilon=}")
+            return x
         x = x_new
     
+    print(f"{iter=}", f"{epsilon=}")
     return x
