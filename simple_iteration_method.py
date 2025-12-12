@@ -1,6 +1,6 @@
 import numpy as np
 
-def simple_iteration_method(A, B, epsilon = 10e-16, iters = 100000): 
+def simple_iteration_method(A, B, epsilon = 1e-15, iters = 100000): 
     n = len(A)
     
     D = np.zeros((n, n))

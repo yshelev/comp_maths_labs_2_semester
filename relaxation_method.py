@@ -11,10 +11,9 @@ def relaxation_method(A, B, omega, iters=10000, epsilon=1e-16):
                                                                   np.dot(A[i, :i], x[:i]) - 
                                                                   np.dot(A[i, i+1:], x_prev[i+1:]) )
         if all(abs(x - x_prev) < epsilon):
-            print(f"{omega=}", f"{iter=}", f"{epsilon=}")
-            return x 
+            return x, iters
         
-    return x
+    return x, iters
 
         
         
