@@ -14,9 +14,10 @@ def check(A, k=10):
     
     return np.all(np.abs(off_diag_elements) <= threshold)
     
-def rotation_method_with_obstacles(A: np.array): 
+def rotation_method_with_obstacles(A: np.array, precision=10): 
     n = len(A)
     iters = 1
+    cur_p = 1
     while True: 
         C = np.zeros((n, n))
     
@@ -54,7 +55,9 @@ def rotation_method_with_obstacles(A: np.array):
                     C[k, j] = -s * A[k, i] + c * A[k, j]
                     C[j, k] = C[k, j]
         A = C
-        if check(A):
-            print(iters)
-            return [A[i, i] for i in range(n)]
+        if check(A, cur_p):
+            cur_p += 1
+            if cur_p == precision + 1: 
+                print(iters)
+                return [A[i, i] for i in range(n)]
         iters += 1
