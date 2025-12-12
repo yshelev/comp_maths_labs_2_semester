@@ -13,7 +13,7 @@ def relaxation_method(A, B, omega, iters=10000, epsilon=1e-16):
         if all(abs(x - x_prev) < epsilon):
             return x, iters
         
-    return x, iters
+    return x
 
         
         
